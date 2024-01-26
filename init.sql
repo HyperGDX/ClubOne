@@ -24,8 +24,8 @@ create table if not exists posts (
     id integer primary key auto_increment,
     user_id integer not null,
     foreign key (user_id) references users(id),
-    channel_id integer not null,
-    title varchar(256) not null,
+    channel_id varchar(255) not null,
+    title varchar(255) not null,
     content varchar(65535) default null,
     status tinyint not null default 1,
     like_count int not null default 0,
@@ -48,8 +48,8 @@ VALUES
 -- 插入 posts 表的数据
 INSERT INTO posts (user_id, channel_id, title, content, status)
 VALUESs
-(1, 1, 'Title1', 'Content1', 1),
-(2, 1, 'Title2', 'Content2', 1),
-(3, 2, 'Title3', 'Content3', 1),
-(4, 2, 'Title4', 'Content4', 1),
-(5, 3, 'Title5', 'Content5', 1);
+(1, '1', 'Title1', 'Content1', 1),
+(2, '1', 'Title2', 'Content2', 1),
+(3, '1', 'Title3', 'Content3', 1),
+(4, '1', 'Title4', 'Content4', 1),
+(5, '1', 'Title5', 'Content5', 1);
