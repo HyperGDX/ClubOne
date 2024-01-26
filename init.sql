@@ -24,18 +24,15 @@ create table if not exists posts (
     id integer primary key auto_increment,
     user_id integer not null,
     foreign key (user_id) references users(id),
-    group_id integer not null,
-    post_title varchar(256) not null,
-    post_content blob not null,
-    post_status tinyint not null default 1,
+    channel_id integer not null,
+    title varchar(256) not null,
+    content varchar(65535) default null,
+    status tinyint not null default 1,
     like_count int not null default 0,
     view_count int not null default 1,
     create_time datetime not null default current_timestamp,
     update_time datetime not null default current_timestamp ON UPDATE CURRENT_TIMESTAMP,
     delete_time datetime default null,
-    avatar varchar(32),
-    reserve1 varchar(32) default null,
-    reserve2 varchar(32) default null
 )engine=innodb default charset=utf8;
 
 
@@ -49,8 +46,8 @@ VALUES
 (5, 'Eve', 0, 1, 1, 45, 'password5', 'Region5', '12345678905', 'eve@example.com');
 
 -- 插入 posts 表的数据
-INSERT INTO posts (user_id, group_id, post_title, post_content, post_status)
-VALUES
+INSERT INTO posts (user_id, channel_id, title, content, status)
+VALUESs
 (1, 1, 'Title1', 'Content1', 1),
 (2, 1, 'Title2', 'Content2', 1),
 (3, 2, 'Title3', 'Content3', 1),
