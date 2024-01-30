@@ -3,8 +3,10 @@ services:
   frontend:
     image: companyone-frontend
     ports:
-      - 8101:80
-  bff:
+      - 80:8101
+    networks:
+      - mydocker
+  bf-service:
     image: companyone-bff
     ports:
       - 8102:8102
