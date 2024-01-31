@@ -5,30 +5,36 @@ services:
     ports:
       - 80:8101
     networks:
-      - mydocker
+      - companyone
   bff:
     image: companyone-bff
     ports:
       - 8102:8102
     networks:
-      - mydocker
+      - companyone
   forum:
     image: companyone-forum
     ports:
       - 8103:8103
+    environment:
+      DATABASE_URL: jdbc:mysql://mysql:3306/co_forum?allowPublicKeyRetrieval=true
     networks:
-      - mydocker
+      - companyone
   mysql:
     image: mysql:8.3
     ports:
       - 3306:3306
     volumes:
-    - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql # 初始化db脚本
+      - db_data:/var/lib/mysql # 数据卷
+      # - ./my.cnf:/etc/mysql/conf.d/my.cnf # 配置
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: company_one
+      MYSQL_ROOT_PASSWORD: companyone
     networks:
-      - mydocker
+      - companyone
+
+volumes:
+  db_data:
 
 networks:
-  mydocker:
+  companyone:
