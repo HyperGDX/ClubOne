@@ -4,6 +4,7 @@ services:
     image: companyone-frontend
     ports:
       - 80:8101
+      - 443:8443
     networks:
       - companyone
   bff:
