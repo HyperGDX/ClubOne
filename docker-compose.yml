@@ -21,6 +21,12 @@ services:
       DATABASE_URL: jdbc:mysql://mysql:3306/co_forum?allowPublicKeyRetrieval=true
     networks:
       - companyone
+  third:
+    image: companyone-third
+    ports:
+      - 8108:8108
+    networks:
+      - companyone
   mysql:
     image: mysql:8.3
     ports:

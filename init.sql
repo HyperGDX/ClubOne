@@ -12,7 +12,7 @@ create table if not exists posts (
     channel_id varchar(255) not null,
     title varchar(255) not null,
     content varchar(255) default null,
-    pics JSON default null,
+    pics JSON default "[]",
     status tinyint not null default 1,
     like_count int not null default 0,
     view_count int not null default 1,
@@ -24,11 +24,11 @@ create table if not exists posts (
 -- 插入 posts 表的数据
 INSERT INTO posts (user_id, channel_id, title, content, status)
 VALUES
-(1, '1', 'Title1', 'Content1', 1),
-(2, '1', 'Title2', 'Content2', 1),
-(3, '1', 'Title3', 'Content3', 1),
-(4, '1', 'Title4', 'Content4', 1),
-(5, '1', 'Title5', 'Content5', 1);
+(1, '[1]', 'Title1', 'Content1', 1),
+(2, '[1]', 'Title2', 'Content2', 1),
+(3, '[1]', 'Title3', 'Content3', 1),
+(4, '[1]', 'Title4', 'Content4', 1),
+(5, '[1]', 'Title5', 'Content5', 1);
 
 
 -- 创建名为co_forum的数据库
