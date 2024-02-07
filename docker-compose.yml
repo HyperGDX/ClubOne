@@ -14,15 +14,16 @@ services:
     networks:
       - companyone
   forum:
-    image: companyone-forum
+    image: companyone-forum_service
     ports:
       - 8103:8103
     environment:
       DATABASE_URL: jdbc:mysql://mysql:3306/co_forum?allowPublicKeyRetrieval=true
+      MYSQL_ROOT_PASSWORD: companyone
     networks:
       - companyone
   third:
-    image: companyone-third
+    image: companyone-third_part_service
     ports:
       - 8108:8108
     networks:

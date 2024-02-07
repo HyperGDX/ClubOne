@@ -12,7 +12,7 @@ create table if not exists posts (
     channel_id varchar(255) not null,
     title varchar(255) not null,
     content varchar(255) default null,
-    pics JSON default "[]",
+    pics varchar(255) default "[]",
     status tinyint not null default 1,
     like_count int not null default 0,
     view_count int not null default 1,
